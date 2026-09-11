@@ -8,7 +8,15 @@ function createGrid(size) {
         square.style.backgroundColor = "aqua";
         square.style.width = `${960 / size}px`;
         square.style.height = `${960 / size}px`;
-        square.addEventListener("mouseover", () => square.style.backgroundColor = "black");
+        
+        square.addEventListener("mouseover", function() {
+            const r = parseInt(Math.random() * 255) + 1;
+            const g = parseInt(Math.random() * 255) + 1;
+            const b = parseInt(Math.random() * 255) + 1;
+            square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            square.style.opacity = `${+square.style.opacity + 0.1}`;
+        });
+        
         container.appendChild(square);
     }
 }
